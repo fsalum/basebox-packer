@@ -1,9 +1,9 @@
 {
   "variables": {
-    "provisioner": "chef",
+    "provisioner": "puppet",
     "provisioner_version": "latest",
-    "iso_url": "../../iso/en_windows_server_2008_r2_with_sp1_vl_build_x64_dvd_617403.iso",
-      "iso_checksum": "7e7e9425041b3328ccf723a0855c2bc4f462ec57"
+    "iso_url": "/Users/fsalum/Downloads/isos/en_windows_server_2008_r2_with_sp1_x64_dvd_617601.iso",
+    "iso_checksum": "d3fd7bf85ee1d5bdd72de5b2c69a7b470733cd0a"
   },
   "builders": [
     {
@@ -41,6 +41,7 @@
       "iso_url": "{{ user `iso_url` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
       "iso_checksum_type": "sha1",
+      "guest_additions_url": "/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "10000s",
@@ -74,6 +75,7 @@
       "scripts": [
         "script/vagrant.bat",
         "script/provisioner.bat",
+        "script/puppet.bat",
         "script/vmtools.bat"
       ]
     },
